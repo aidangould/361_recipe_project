@@ -9,10 +9,12 @@ debug = 1
 
 context = zmq.Context()
 socket = context.socket(zmq.REP)
-socket.bind("tcp://*:5555")
+socket.bind("tcp://*:5556")
 
 #listen for input
 while True:
+    if debug == 1:
+        print("starting loop")
     message = socket.recv()
     messagestr = str(message)
     if debug == 1:
